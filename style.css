@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#game-intro{
+background-image: url(images/Backgrounds/Intro:End.svg);
+background-size: cover;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+#instructions {
+    opacity: 0;
+    width: 0px; 
+    height: 0px; 
+    position: relative; 
+}
+
+.animated {
+    animation: popup 1s forwards
+}
+
+/* Animation */
+@keyframes popup {
+    /* Initial position, width and height */
+   from {
+     left: 0px; 
+     top: 0px;
+     width: 0px;
+     height: 0px;
+   }
+
+    /* Final position, width, height and border to transition to
+  during the animation */
+  to {
+    opacity: 1;
+    left: 200px;
+    top: 200px;
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+  }
+}
+
+.title-img{
+  width: 800px;
+}
+
+.penguin-heart-img{
+  width: 600px;
+}
+
+#game-screen {
+    display:none;
+}
+
+#game-end{
+    display:none
+}
