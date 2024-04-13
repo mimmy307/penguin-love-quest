@@ -61,19 +61,16 @@ align-items: center;
     background-size: cover;
     height: 100vh;
     margin: 50px 10px;
-    animation: slide 5s linear infinite;
+    animation: slide 10s linear infinite;
 }
 
 
 @keyframes slide {
   0% {
-    background-position: 1000px 0;
-  }
-  95% {
-    background-position: 0 0;
+    background-position: 1366px 0;
   }
   100% {
-    background-position: -50 0;
+    background-position: -100 0;
   }
 }
 
