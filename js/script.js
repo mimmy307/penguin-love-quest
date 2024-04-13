@@ -1,3 +1,19 @@
+window.onload = function () {
+  const playButton = document.getElementById("play-button");
+  const restartButton = document.getElementById("restart-button");
+  let game;
+
+  playButton.addEventListener("click", function () {
+    startGame();
+  });
+
+  function startGame() {
+    console.log("start game");
+    game = new Game()
+    game.start()
+  }
+};
+
 const instructionsDiv = document.getElementById("instructions"); 
 const instructionButton = document.getElementById("instruction-button"); 
 

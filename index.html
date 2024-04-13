@@ -10,43 +10,49 @@
 <body>
     <main>
         <div id="game-intro">
-            <!--Title -->
             <img src="images/title.svg" alt="title" class="title-img">
-            <!--Image of penguin couple-->
             <img src="images/penguin couple/penguin-couple-heart.png" alt="penguin-couple" class="penguin-heart-img">
             <div id="intro-text">
                 <p>Did you know? Penguins mate for life! They find 
                 their mate by presenting them with a pebble as a symbol of their love. </p>
                 <br>
                 <p>Join our Penguin in an adventure to find it's lifelong mate</p>
-            </div>
+            </div> 
             <div id="instructions-container">
                 <div id="instructions">
                     <p>game instructions here</p>
                 </div>
             </div>
             
-            <div id="button-container">
-                <!-- Two buttons (Instruction & Start)-->
-                <button id="instruction-button"> Instructions</button>
+            <div id="button-container"> 
+                 <button id="instruction-button"> Instructions</button>
                 <button id="play-button">Play</button>
 
-            </div>
+            </div> 
         </div>
 
         <div id="game-screen">
-            <div>
-                <img id="score" src="" alt="score bar">
+            <div class="game-scoring">
+                <img class="score-img" src="images/Score Bar/11.svg" alt="score bar">
                 <p>Lives: <span id="lives">3</span></p>
             </div>
         </div>
 
         <div id="game-end">
-
+            <div id="game-won">
+                <img src="images/penguin couple/penguin-couple-diamond.png" alt="penguin proposing" class="game-won-img">
+                <h1>Congratulations! Penguin has found its lifelong mate</h1>
+            </div>
+            <div id="game-lost">
+                <img src="" alt="">
+                <h1>Oops! Game Over</h1>
+            </div>
+            <button id="restart-button">Restart</button>
 
         </div>
     </main> 
     
+    <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

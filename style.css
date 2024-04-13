@@ -1,9 +1,11 @@
 body{
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 #game-intro{
+display: block;
 background-image: url(images/Backgrounds/Intro:End.svg);
 background-size: cover;
 display: flex;
@@ -55,6 +57,32 @@ align-items: center;
 
 #game-screen {
     display:none;
+    background-image: url(images/Backgrounds/backgroundDef.png);
+    background-size: cover;
+    height: 100vh;
+    margin: 50px 10px;
+    animation: slide 5s linear infinite;
+}
+
+
+@keyframes slide {
+  0% {
+    background-position: 1000px 0;
+  }
+  95% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -50 0;
+  }
+}
+
+.game-scoring {
+  max-width: 800px
+}
+
+.score-img{
+  width: 200px;
 }
 
 #game-end{
