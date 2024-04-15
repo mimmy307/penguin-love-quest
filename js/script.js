@@ -12,7 +12,7 @@ window.onload = function () {
     game = new Game()
     game.start()
   }
-};
+
 
 const instructionsDiv = document.getElementById("instructions"); 
 const instructionButton = document.getElementById("instruction-button"); 
@@ -27,3 +27,23 @@ function showPopup () {
   // Remove the event listener from the button
   instructionButton.removeEventListener('click', showPopup);
 }
+
+function handleKeydown(event) {
+  const key = event.key;
+  const possibleKeystrokes = ["ArrowUp"];
+
+  // Check if the pressed key is in the possibleKeystrokes array
+  if (possibleKeystrokes.includes(key)) {
+    event.preventDefault();
+
+    // Update player's directionX and directionY based on the key pressed
+    switch (key) {
+      case "ArrowUp":
+        game.player.directionY = -1;
+        break;
+    }
+  }
+}
+
+window.addEventListener("keydown", handleKeydown);
+};

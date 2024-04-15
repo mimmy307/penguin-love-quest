@@ -3,7 +3,14 @@ class Game {
         this.startScreen = document.getElementById("game-intro");
         this.gameScreen = document.getElementById("game-screen");
         this.endScreen = document.getElementById("game-end");
-        this.player = null;
+        this.player = new Player(
+            this.gameScreen,
+            50,
+            550,
+            130,
+            130,
+            "./images/icon_penguin.png"
+          );
         // this.height = 800; //come back later to adjust 
         // this.width = 1000; //come back later to adjust 
         this.obstacles = [];
@@ -35,6 +42,7 @@ class Game {
     }
 
     update(){
+        this.player.move();
 
     }
 
