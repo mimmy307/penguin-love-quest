@@ -62,5 +62,23 @@ class Player {
         }
     }
 
+   heartCollect(heart) {
+        const playerRect = this.element.getBoundingClientRect();
+        const heartRect = heart.element.getBoundingClientRect();
+
+        if (
+            playerRect.left < heartRect.right &&
+            playerRect.right > heartRect.left &&
+            playerRect.top < heartRect.bottom &&
+            playerRect.bottom > heartRect.top
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
 
 }
