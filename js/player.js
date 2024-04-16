@@ -1,13 +1,12 @@
 class Player {
-    constructor(gameScreen, left, top, width, height, spriteSrc, numFrames){
+    constructor(gameScreen, left, top, width, height, imgSrc){
         this.gameScreen = gameScreen;
         this.left = left;
         this.top = top;
         this.width = width;
         this.height = height;
-        this.directionY = 0;
-        this.currentFrame = 0;
-        this.numFrames = 4;
+        this.jumpStrength = 200;
+        this.gravity = 5;
         this.element = document.createElement("img");
 
         this.element.src = imgSrc;
@@ -28,18 +27,16 @@ class Player {
     }
 
     jump(){
-        this.directionY = -5; 
+        console.log("Jumping");
+        this.top -= this.jumpStrength;
+      }
     
-    }
     move() {
-        this.directionY += 0.2;
-        this.top += this.directionY;
-
-        if (this.top < 10) {
-            this.top = 10;
+        if (this.top < this.gameScreen.offsetHeight - this.height - 60) {
+            this.top += this.gravity;
         }
-        if (this.top > this.gameScreen.offsetHeight - this.height - 10) {
-            this.top = this.gameScreen.offsetHeight - this.height - 10;
+        if (this.top > this.gameScreen.offsetHeight - this.height - 60) {
+            this.top = this.gameScreen.offsetHeight - this.height - 60;
         }
 
         this.updatePosition();
