@@ -3,6 +3,7 @@ class Game {
         this.startScreen = document.getElementById("game-intro");
         this.gameScreen = document.getElementById("game-screen");
         this.endScreen = document.getElementById("game-end");
+        this.livesElement = document.querySelector("#lives");
         this.player = new Player(
             this.gameScreen,
             50,
@@ -52,14 +53,11 @@ class Game {
                 obstacle.element.remove();
                 this.obstacles.splice(i, 1); 
                 this.lives--; 
+                this.livesElement.innerText = this.lives
                 i--; 
-            } 
-            else if(obstacle.top > this.height){
-                obstacle.element.remove();
-                this.obstacles.splice(i, 1);
-                i--;
-            }
+            
         }
+    }
 
         for (let i = 0; i < this.heart.length; i++) {
             const heart = this.heart[i];
@@ -70,47 +68,41 @@ class Game {
                 this.heart.splice(i, 1); 
                 this.score++; 
                 i--; 
+                this.updateScoreBar();
             } 
+        }
+
+        if (Math.random() > 0.98 && this.obstacles.length < 2) {
+            const obstacleGap = Math.floor(Math.random() * 300) + 200;
+            this.obstacles.push(new Obstacle(this.gameScreen, obstacleGap))
+        }
+
+        if (Math.random() > 0.98 && this.heart.length < 2)  {
+            const heartGap = Math.floor(Math.random() * 300) + 200;
+            this.heart.push(new Heart(this.gameScreen, heartGap));
         }
 
         if (this.lives === 0 || this.score === 10) {
             this.endGame();
         }
+    }
 
-        if (Math.random() > 0.98 && this.obstacles.length < 1) {
-            this.createObstacle();
-        }
-
-        this.createHeart();
-    
+    updateScoreBar(){
+        const scoreBarImg = document.querySelector(".score-img");
+        const scoreBarNumber = Math.min(this.score, 10);
+        scoreBarImg.src = `images/Score Bar/${scoreBarNumber}.svg`
     }
 
     endGame() {
         this.player.element.remove();
         this.obstacles.forEach(obstacle => obstacle.element.remove());
+        this.heart.forEach(heart => heart.element.remove());
 
         this.gameIsOver = true;
 
         this.gameScreen.style.display = "none";
         this.gameEndScreen.style.display = "block";
     }
-
-
-    createObstacle(){
-        const obstacleImages = ["./images/Obstacles/iceSpike.png", "./images/Obstacles/treeLog.png", "./images/Obstacles/Snowman.png"];
-        const randomImageIndex = Math.floor(Math.random() * obstacleImages.length);
-        const obstacleTop = 600;
-        const obstacle = new Obstacle(this.gameScreen, this.gameScreen.offsetWidth, obstacleTop, obstacleImages[randomImageIndex]);
-        this.obstacles.push(obstacle);
-    }
-
-    createHeart(){
-        if (Math.random() > 0.98 && this.heart.length < 1)  {
-            const heart = new Heart(this.gameScreen);
-            this.heart.push(heart);
-
-    }
     
 
-}
 }

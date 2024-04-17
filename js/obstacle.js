@@ -1,17 +1,19 @@
 class Obstacle{
-    constructor(gameScreen, screenWidth, top, obstacleImage){
+    constructor(gameScreen, gap){
         this.gameScreen = gameScreen;
-        this.width = 100;
-        this.height = 100;
-        this.left = screenWidth;
-        this.top = top
+        this.width = 120;
+        this.height = 150;
+        this.left = this.gameScreen.offsetWidth + gap;
+        this.top = 525
+      
         this.element = document.createElement("img");
-        this.element.src = obstacleImage;
+        this.element.src = "./images/Obstacles/EvilSnowman1.png";
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
         this.element.style.left = `${this.left}px`;
         this.element.style.top = `${this.top}px`;
+        
         this.gameScreen.appendChild(this.element);
 
     }
@@ -23,5 +25,7 @@ class Obstacle{
 
     updatePosition(){
     this.element.style.left = `${this.left}px`;
+    // this.element.style.top = `${this.top}px
     }
+
 }

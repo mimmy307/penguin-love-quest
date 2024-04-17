@@ -1,9 +1,9 @@
 class Heart{
-    constructor(gameScreen){
+    constructor(gameScreen, gap){
         this.gameScreen = gameScreen;
         this.width = 100;
         this.height = 100;
-        this.left = this.gameScreen.offsetWidth;
+        this.left = this.gameScreen.offsetWidth + gap;
         this.top = 550
         this.element = document.createElement("img");
         this.element.src = "./images/heart1.svg";
