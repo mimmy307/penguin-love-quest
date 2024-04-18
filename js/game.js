@@ -3,6 +3,8 @@ class Game {
         this.startScreen = document.getElementById("game-intro");
         this.gameScreen = document.getElementById("game-screen");
         this.endScreen = document.getElementById("game-end");
+        this.winScreen = document.getElementById("game-won")
+        this.lostScreen = document.getElementById("game-lost")
         this.livesElement = document.querySelector("#lives");
         this.player = new Player(
             this.gameScreen,
@@ -99,9 +101,13 @@ class Game {
         this.heart.forEach(heart => heart.element.remove());
 
         this.gameIsOver = true;
-
         this.gameScreen.style.display = "none";
-        this.gameEndScreen.style.display = "block";
+        this.endScreen.style.display = "block"
+        
+        if(this.lives === 0){
+            this.lostScreen.style.display = "block"
+        }
+        else {this.winScreen.style.display = "block"}
     }
     
 

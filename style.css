@@ -14,11 +14,19 @@ justify-content: center;
 align-items: center;
 }
 
+#intro-text{
+  background-color: #B1E0FF;
+  width: 600px;
+  border-radius: 25px;
+  text-align: center;
+}
+
 #instructions {
     opacity: 0;
     width: 0px; 
     height: 0px; 
-    position: relative; 
+    position: absolute; 
+    background-color: white;
 }
 
 .animated {
@@ -29,8 +37,10 @@ align-items: center;
 @keyframes popup {
     /* Initial position, width and height */
    from {
-     left: 0px; 
-     top: 0px;
+    opacity: 0;
+     left: 50%; 
+     top: 50%;
+     transform: translate(-50%, -50%);
      width: 0px;
      height: 0px;
    }
@@ -39,10 +49,11 @@ align-items: center;
   during the animation */
   to {
     opacity: 1;
-    left: 200px;
-    top: 200px;
-    width: 200px;
-    height: 100px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
     border: 1px solid black;
   }
 }
@@ -83,6 +94,24 @@ align-items: center;
 }
 
 #game-end{
-    display:none
+  display: none;
+  background-image: url(images/Backgrounds/Intro:End.svg);
+  background-size: cover;
+  
 }
 
+#game-won{
+  display:none;
+}
+
+.game-won-img{
+  width:600px;
+}
+
+#game-lost{
+  display:none;
+}
+
+.game-lost-img{
+  width: 500px;
+}

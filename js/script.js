@@ -46,4 +46,13 @@ function handleKeydown(event) {
 }
 
 window.addEventListener("keydown", handleKeydown);
+
+restartButton.addEventListener("click", function () {
+  restartGame();
+});
+
+function restartGame() {
+  location.reload();
+}
+
 };
