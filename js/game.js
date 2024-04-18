@@ -25,8 +25,8 @@ class Game {
         this.gameIsOver = false;
         this.gameIntervalId;
         this.gameLoopFrequency = Math.round(1000/60);
-        this.collect = new Audio("../sounds/collect-points-190037.mp3");
-        this.collide = new Audio("../sounds/collide.mp3")
+        this.collect = new Audio("./sounds/collect-points-190037.mp3");
+        this.collide = new Audio("./sounds/collide.mp3")
     }
 
     start(){
