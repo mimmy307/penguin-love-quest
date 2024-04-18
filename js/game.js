@@ -20,9 +20,13 @@ class Game {
         this.heart = []
         this.score = 0;
         this.lives = 3;
+        this.frameCount = 0
+        this.speed = 400
         this.gameIsOver = false;
         this.gameIntervalId;
         this.gameLoopFrequency = Math.round(1000/60);
+        this.collect = new Audio("../sounds/collect-points-190037.mp3");
+        this.collide = new Audio("../sounds/collide.mp3")
     }
 
     start(){
@@ -37,7 +41,19 @@ class Game {
 
     gameLoop(){
         console.log("in the game loop");
-          
+        this.frameCount ++
+
+       if(this.score >= 2 && this.score < 7){
+            this.speed = 200
+        }
+        else {
+            this.speed =400
+        }
+
+        if (this.frameCount % this.speed === 0){
+        this.obstacles.push(new Obstacle(this.gameScreen, 200, this.score))
+        }
+
         this.update();
         
         if (this.gameIsOver) {
@@ -51,12 +67,18 @@ class Game {
             const obstacle = this.obstacles[i];
             obstacle.move();
 
+            if(obstacle.left < -200){
+                obstacle.element.remove();
+                this.obstacles.splice(i, 1); 
+            }
+
             if (this.player.didCollide(obstacle)) {
                 obstacle.element.remove();
                 this.obstacles.splice(i, 1); 
                 this.lives--; 
                 this.livesElement.innerText = this.lives
                 i--; 
+                this.collide.play()
             
         }
     }
@@ -65,21 +87,27 @@ class Game {
             const heart = this.heart[i];
             heart.move();
 
+            if(heart.left < -200){
+                heart.element.remove();
+                this.heart.splice(i, 1); 
+            }
+
             if (this.player.heartCollect(heart)) {
                 heart.element.remove();
                 this.heart.splice(i, 1); 
                 this.score++; 
                 i--; 
                 this.updateScoreBar();
+                this.collect.play()
             } 
         }
-
-        if (Math.random() > 0.98 && this.obstacles.length < 2) {
+        
+        if (this.obstacles.length < 1) {
             const obstacleGap = Math.floor(Math.random() * 300) + 200;
             this.obstacles.push(new Obstacle(this.gameScreen, obstacleGap))
         }
 
-        if (Math.random() > 0.98 && this.heart.length < 2)  {
+        if (this.heart.length < 1)  {
             const heartGap = Math.floor(Math.random() * 300) + 200;
             this.heart.push(new Heart(this.gameScreen, heartGap));
         }

@@ -27,8 +27,10 @@ class Player {
     }
 
     jump(){
-        console.log("Jumping");
+        const jumpLimit = 350;
+        if(this.top > jumpLimit){
         this.top -= this.jumpStrength;
+        }
       }
     
     move() {

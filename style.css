@@ -1,3 +1,4 @@
+
 body{
     margin: 0;
     padding: 0;
@@ -19,10 +20,13 @@ align-items: center;
   width: 600px;
   border-radius: 25px;
   text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
-#instructions {
-    opacity: 0;
+.instructions {
+    display: none;
+    opacity:0;
     width: 0px; 
     height: 0px; 
     position: absolute; 
@@ -30,7 +34,8 @@ align-items: center;
 }
 
 .animated {
-    animation: popup 1s forwards
+    animation: popup 1s forwards;
+    display: block;
 }
 
 /* Animation */
@@ -59,11 +64,13 @@ align-items: center;
 }
 
 .title-img{
-  width: 800px;
+  width: 700px;
+  margin-top: 10px;
 }
 
 .penguin-heart-img{
   width: 600px;
+  margin-bottom: 20px;
 }
 
 #game-screen {
@@ -71,7 +78,7 @@ align-items: center;
     background-image: url(images/Backgrounds/backgroundDef.png);
     background-size: cover;
     height: 100vh;
-    margin: 50px 10px;
+    /* margin: 10px 10px; */
     animation: slide 10s linear infinite;
 }
 
@@ -81,12 +88,16 @@ align-items: center;
     background-position: 1366px 0;
   }
   100% {
-    background-position: -100 0;
+    background-position: 0 0;
   }
 }
 
 .game-scoring {
-  max-width: 800px
+  display:flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  
 }
 
 .score-img{
@@ -97,11 +108,10 @@ align-items: center;
   display: none;
   background-image: url(images/Backgrounds/Intro:End.svg);
   background-size: cover;
-  
 }
 
 #game-won{
-  display:none;
+  display: none;
 }
 
 .game-won-img{
@@ -109,9 +119,25 @@ align-items: center;
 }
 
 #game-lost{
-  display:none;
+  display: none;
 }
 
+#game-lost h1{
+  color: white;
+  font-size: 40px;
+}
 .game-lost-img{
   width: 500px;
+}
+
+body button {
+  font-size: 18px;
+  background-color: #e51a04;
+  color: #fff;
+  width: 150px;
+  height: 50px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 15px;
+  margin-bottom: 60px;
 }
