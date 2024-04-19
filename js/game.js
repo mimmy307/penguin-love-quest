@@ -12,10 +12,8 @@ class Game {
             550,
             130,
             130,
-            "./images/icon_penguin.png"
+            "../images/penguin/icon_penguin.png"
           );
-        // this.height = 800; //come back later to adjust 
-        // this.width = 1000; //come back later to adjust 
         this.obstacles = [];
         this.heart = []
         this.score = 0;
@@ -26,12 +24,12 @@ class Game {
         this.gameIntervalId;
         this.gameLoopFrequency = Math.round(1000/60);
         this.collect = new Audio("./sounds/collect-points-190037.mp3");
-        this.collide = new Audio("./sounds/collide.mp3")
+        this.collide = new Audio("./sounds/collide.mp3");
+        this.win = new Audio("./sounds/level-win-6416.mp3");
+        this.lose = new Audio("../sounds/negative_beeps-6008.mp3")
     }
 
     start(){
-        // this.gameScreen.style.height = `${this.height}px`;
-        // this.gameScreen.style.width = `${this.width}px`; 
         this.startScreen.style.display = "none";
         this.gameScreen.style.display = "block";
         this.gameIntervalId = setInterval(() => {
@@ -43,7 +41,7 @@ class Game {
         console.log("in the game loop");
         this.frameCount ++
 
-       if(this.score >= 2 && this.score < 7){
+       if(this.score >= 3){
             this.speed = 200
         }
         else {
@@ -112,7 +110,7 @@ class Game {
             this.heart.push(new Heart(this.gameScreen, heartGap));
         }
 
-        if (this.lives === 0|| this.score === 5) {
+        if (this.lives === 0|| this.score === 10) {
             this.endGame();
         }
     }
@@ -130,14 +128,16 @@ class Game {
 
         this.gameIsOver = true;
         this.gameScreen.style.display = "none";
-        // this.endScreen.style.display = "block"
         
         if(this.lives === 0){
             this.lostScreen.style.display = "flex";
-            this.winScreen.style.display = "none"
+            this.winScreen.style.display = "none";
+            this.lose.play()
         }
         else {this.lostScreen.style.display = "none";
-        this.winScreen.style.display = "flex"}
+        this.winScreen.style.display = "flex";
+        this.win.play()
+        }
     }
     
 

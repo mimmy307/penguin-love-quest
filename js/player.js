@@ -5,7 +5,7 @@ class Player {
         this.top = top;
         this.width = width;
         this.height = height;
-        this.jumpStrength = 200;
+        this.jumpStrength = 250;
         this.gravity = 5;
         this.element = document.createElement("img");
 
@@ -22,12 +22,15 @@ class Player {
             if (event.key === 'ArrowUp') {
                 event.preventDefault();
                 this.jump();
-            }
+            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+            event.preventDefault();
+    
+        }
         });
     }
 
     jump(){
-        const jumpLimit = 350;
+        const jumpLimit = 300;
         if(this.top > jumpLimit){
         this.top -= this.jumpStrength;
         }

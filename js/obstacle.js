@@ -20,14 +20,14 @@ class Obstacle{
     }
 
     move(){
-        if (this.score > 7) {
+        if (this.score >= 7) {
+            this.left -= 7; 
+        } else if (this.score >= 5) {
             this.left -= 6; 
-        } else if (this.score > 5) {
+        } else if (this.score >= 3) {
             this.left -= 5; 
-        } else if (this.score > 3) {
+        } else if(this.score <3){
             this.left -= 4; 
-        } else if(this.score <= 3){
-            this.left -= 3; 
         }
     this.updatePosition();
     }
