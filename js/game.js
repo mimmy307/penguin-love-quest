@@ -112,7 +112,7 @@ class Game {
             this.heart.push(new Heart(this.gameScreen, heartGap));
         }
 
-        if (this.lives === 2|| this.score === 1) {
+        if (this.lives === 0|| this.score === 5) {
             this.endGame();
         }
     }
@@ -132,7 +132,7 @@ class Game {
         this.gameScreen.style.display = "none";
         // this.endScreen.style.display = "block"
         
-        if(this.lives === 2){
+        if(this.lives === 0){
             this.lostScreen.style.display = "flex";
             this.winScreen.style.display = "none"
         }

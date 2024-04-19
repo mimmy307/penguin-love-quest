@@ -73,6 +73,13 @@ align-items: center;
   }
 }
 
+.close {
+  position: absolute;
+  cursor: pointer;
+  left: 470px
+
+}
+
 .title-img{
   width: 700px;
   margin-top: 10px;
