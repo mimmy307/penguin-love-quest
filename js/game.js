@@ -112,7 +112,7 @@ class Game {
             this.heart.push(new Heart(this.gameScreen, heartGap));
         }
 
-        if (this.lives === 0 || this.score === 10) {
+        if (this.lives === 2|| this.score === 1) {
             this.endGame();
         }
     }
@@ -130,12 +130,14 @@ class Game {
 
         this.gameIsOver = true;
         this.gameScreen.style.display = "none";
-        this.endScreen.style.display = "block"
+        // this.endScreen.style.display = "block"
         
-        if(this.lives === 0){
-            this.lostScreen.style.display = "block"
+        if(this.lives === 2){
+            this.lostScreen.style.display = "flex";
+            this.winScreen.style.display = "none"
         }
-        else {this.winScreen.style.display = "block"}
+        else {this.lostScreen.style.display = "none";
+        this.winScreen.style.display = "flex"}
     }
     
 

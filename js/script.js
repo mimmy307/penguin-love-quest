@@ -1,6 +1,7 @@
 window.onload = function () {
   const playButton = document.getElementById("play-button");
-  const restartButton = document.getElementById("restart-button");
+  const winRestartButton = document.getElementById("win-restart-button");
+  const lostRestartButton = document.getElementById("lost-restart-button")
   let game;
 
   playButton.addEventListener("click", function () {
@@ -26,7 +27,11 @@ function showPopup () {
   instructionButton.removeEventListener('click', showPopup);
 }
 
-restartButton.addEventListener("click", function () {
+winRestartButton.addEventListener("click", function () {
+  restartGame();
+});
+
+lostRestartButton.addEventListener("click", function () {
   restartGame();
 });
 

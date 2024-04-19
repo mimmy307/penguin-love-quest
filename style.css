@@ -104,30 +104,50 @@ align-items: center;
   width: 200px;
 }
 
-#game-end{
+/* #game-end{
   display: none;
   background-image: url(images/Backgrounds/Intro:End.svg);
   background-size: cover;
-}
+} */
 
-#game-won{
+#game-won, #game-lost{
   display: none;
+  background-image: url(images/Backgrounds/Intro:End.svg);
+  background-size: cover;
+  flex-direction: column;
+  align-items: center;
+  color:white;
+  font-size: 20px;
+  height: 100vh;
 }
 
 .game-won-img{
   width:600px;
 }
 
-#game-lost{
+/* #game-lost{
   display: none;
-}
+  background-image: url(images/Backgrounds/Intro:End.svg);
+  background-size: cover;
+  flex-direction: column;
+  align-items: center;
+  color:white;
+  font-size: 20px;
+  height: 100vh;
+} */
 
 #game-lost h1{
   color: white;
   font-size: 40px;
+  margin-bottom: 50px;
 }
+
 .game-lost-img{
   width: 500px;
+}
+
+#lost-restart-button{
+  margin: 30px;
 }
 
 body button {
