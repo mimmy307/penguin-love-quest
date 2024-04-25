@@ -12,7 +12,7 @@ class Game {
             550,
             130,
             130,
-            "../images/penguin/icon_penguin.png"
+            "./images/penguin/icon_penguin.png"
           );
         this.obstacles = [];
         this.heart = []
@@ -26,7 +26,7 @@ class Game {
         this.collect = new Audio("./sounds/collect-points-190037.mp3");
         this.collide = new Audio("./sounds/collide.mp3");
         this.win = new Audio("./sounds/level-win-6416.mp3");
-        this.lose = new Audio("../sounds/negative_beeps-6008.mp3")
+        this.lose = new Audio("./sounds/negative_beeps-6008.mp3")
     }
 
     start(){
